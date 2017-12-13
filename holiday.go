@@ -64,9 +64,9 @@ func NewHolidayFunc(fn HolidayFn) Holiday {
 	return Holiday{Func: fn}
 }
 
-// matches determines whether the given date is the one referred to by the
+// Matches determines whether the given date is the one referred to by the
 // Holiday.
-func (h *Holiday) matches(date time.Time) bool {
+func (h *Holiday) Matches(date time.Time) bool {
 
 	if h.Func != nil && (date.Year() != h.lastYear || date.Location() != h.lastLoc) {
 		h.Month, h.Day = h.Func(date.Year(), date.Location())

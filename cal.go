@@ -125,12 +125,12 @@ func (c *Calendar) SetWorkday(day time.Weekday, workday bool) {
 func (c *Calendar) IsHoliday(date time.Time) bool {
 	idx := date.Month()
 	for i := range c.holidays[idx] {
-		if c.holidays[idx][i].matches(date) {
+		if c.holidays[idx][i].Matches(date) {
 			return true
 		}
 	}
 	for i := range c.holidays[0] {
-		if c.holidays[0][i].matches(date) {
+		if c.holidays[0][i].Matches(date) {
 			return true
 		}
 	}
